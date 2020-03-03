@@ -14,19 +14,25 @@ public class Calculator extends CordovaPlugin {
 
     @Override
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
-        if (action.equals("coolMethod")) {
-            String message = args.getString(0);
-            this.coolMethod(message, callbackContext);
+        if (action.equals("add")) {
+            this.add(args, callbackContext);
             return true;
         }
         return false;
     }
 
-    private void coolMethod(String message, CallbackContext callbackContext) {
-        if (message != null && message.length() > 0) {
-            callbackContext.success(message);
+    private void add(JSONArray args, CallbackContext callbackContext) {
+        if(args != null) {
+            try {
+                int param1 = Integer.parseInt(args.getJSONObject(0).getString("param1"));
+                int param2 = Integer.parseInt(args.getJSONObject(0).getString("param2"));
+
+                callbackContext.success("Sum of two numbers: " + (param1+param2));
+            } catch (Exception e) {
+                callbackContext.error("JSON exception happened: "+e);
+            }
         } else {
-            callbackContext.error("Expected one non-empty string argument.");
+            callbackContext.error("Arguments cannot be null");
         }
     }
 }

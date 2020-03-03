@@ -1,0 +1,19 @@
+{
+  "name": "calculator",
+  "version": "1.0.0",
+  "description": "Sample calculator plugin",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rejimal-rck/calculator.git"
+  },
+  "author": "Antony Rejimal",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rejimal-rck/calculator/issues"
+  },
+  "homepage": "https://github.com/rejimal-rck/calculator#readme"
+}
